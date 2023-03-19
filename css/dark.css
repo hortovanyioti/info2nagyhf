@@ -1,0 +1,57 @@
+body {
+    background-color: #000000;
+    color: #eee;
+}
+
+h1 {
+    text-shadow: 5px 5px #150933;
+}
+
+td,
+th {
+    padding: 15px;
+    border: 1px solid #ffffff;
+}
+
+th {
+    color: #eee;
+    margin: 10px;
+    background-color: #1f1122;
+}
+
+tr:nth-child(even) {
+    color: #ccc;
+    background-color: #321281;
+}
+
+tr:nth-child(odd) {
+    color: #eee;
+    background-color: #150933;
+}
+
+.add-button {
+    color: #eee;
+    background-color: #1f1122;
+}
+
+.add-button:hover {
+    color: #1f1122;
+    background-color: #eee;
+}
+
+div.menubar {
+    background-color: #1f1122;
+    color: #eee;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+}
+
+.menubar-item {
+    border: 2px solid #eee;
+}
+
+.menubar-item:hover {
+    font-weight: bold;
+    background-color: #eee;
+    color: #1f1122;
+}
