@@ -1,5 +1,5 @@
 body {
-    background-color: #000000;
+    background-color: #202020;
     color: #eee;
 }
 
@@ -10,37 +10,38 @@ h1 {
 td,
 th {
     padding: 15px;
-    border: 1px solid #ffffff;
+    border: 1px solid #eee;
 }
 
 th {
     color: #eee;
     margin: 10px;
-    background-color: #1f1122;
+    background-color: #111;
 }
 
 tr:nth-child(even) {
-    color: #ccc;
-    background-color: #321281;
+    color: #eee;
+    background-color: #333;
 }
 
 tr:nth-child(odd) {
     color: #eee;
-    background-color: #150933;
+    background-color: #555;
 }
 
 .add-button {
     color: #eee;
-    background-color: #1f1122;
+    background-color: #000;
+    border: 1px solid #eee;
 }
 
 .add-button:hover {
-    color: #1f1122;
+    color: #000;
     background-color: #eee;
 }
 
 div.menubar {
-    background-color: #1f1122;
+    background-color: #000;
     color: #eee;
     border-top: 2px solid #eee;
     border-bottom: 2px solid #eee;
@@ -53,5 +54,5 @@ div.menubar {
 .menubar-item:hover {
     font-weight: bold;
     background-color: #eee;
-    color: #1f1122;
+    color: #000;
 }
