@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <head>
@@ -10,11 +11,12 @@
 </head>
 
 <body>
-	<div class="topbar">
+	<div class="outline-bar">
 		### Hortoványi Ottó INFO2 HF ###
 	</div>
 	<div class="menubar">
-		<a href="/" class="menubar-item">HOME</a>
-		<a href="/" class="menubar-item">HOME</a>
-		<a href="/" class="menubar-item">DARK</a>
+		<a href="index.php" class="menubar-item">HOME</a>
+		<a href="soldiers.php" class="menubar-item">SOLDIERS</a>
+		<a href="" class="menubar-item">DARK</a>
+		<a href="login.php" class="menubar-item">LOGIN</a>
 	</div>

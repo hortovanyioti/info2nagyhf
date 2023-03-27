@@ -7,24 +7,24 @@ h1 {
     text-shadow: 5px 5px #150933;
 }
 
-td,
-th {
+#main-table>* td,
+#main-table>* th {
     padding: 15px;
     border: 1px solid #ffffff;
 }
 
-th {
+#main-table>* th {
     color: #eee;
     margin: 10px;
     background-color: #1f1122;
 }
 
-tr:nth-child(even) {
+#main-table>* tr:nth-child(even) {
     color: #ccc;
     background-color: #321281;
 }
 
-tr:nth-child(odd) {
+#main-table>* tr:nth-child(odd) {
     color: #eee;
     background-color: #150933;
 }
