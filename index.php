@@ -6,7 +6,7 @@ $db = openDB();
 $query = 'CREATE OR REPLACE VIEW crewcount AS SELECT tankid, COUNT(DISTINCT(soldierid)) AS crew FROM tankcrew GROUP BY tankid;';	//megszámolja a tankhoz rendelt katonák számát
 mysqli_query($db, $query) or die(mysqli_error($db));
 
-$query = 'SELECT tank.name, tank.manufacture, class.name AS class, user.name AS owner, crewcount.crew FROM tank JOIN class ON tank.classid=class.id JOIN user ON tank.ownerid=user.id JOIN crewcount ON tank.id=crewcount.tankid;';
+$query = 'SELECT tank.name, tank.manufacture, class.name AS class, user.name AS owner, COALESCE(crewcount.crew,0) AS crew FROM tank JOIN class ON tank.classid=class.id JOIN user ON tank.ownerid=user.id LEFT OUTER JOIN crewcount ON tank.id=crewcount.tankid;';
 $query = mysqli_query($db, $query) or die(mysqli_error($db));
 ?>
 

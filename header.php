@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 	<link rel="icon" type="image/x-icon" href="pics/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/layout.css" />
-	<link rel="stylesheet" type="text/css" href="css/dark.css" />
+	<link rel="stylesheet" type="text/css" href="css/purple.css" />
 </head>
 
 <body>
