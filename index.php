@@ -1,7 +1,5 @@
 ﻿<?php
-include('lib.php');
 include('header.php');
-$db = openDB();
 
 $query = 'CREATE OR REPLACE VIEW crewcount AS SELECT tankid, COUNT(DISTINCT(soldierid)) AS crew FROM tankcrew GROUP BY tankid;';	//megszámolja a tankhoz rendelt katonák számát
 mysqli_query($db, $query) or die(mysqli_error($db));
@@ -12,7 +10,7 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 
 <h1 align="center">Tank database</h1>
 
-<table id="main-table">
+<table id="main-table" class="hide-button-bg">
 	<tr>
 		<th style="width: 25%">Name</th>
 		<th style="width: 25%">Owner</th>
@@ -28,13 +26,15 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 			<td><?= $row['class'] ?></td>
 			<td><?= $row['crew'] ?></td>
 			<td><?= $row['manufacture'] ?></td>
+			<td style="border: none"><a class="small-button" href="tankeditnew.php">EDIT</a></td>
+			<td style="border: none"><a class="small-button" href="">DELETE</a></td>
 		</tr>
-	<?php endwhile; closeDB($db); ?>
+	<?php endwhile;?>
 
 </table>
 
 <div style="text-align: center; margin: 40px">
-	<a class="add-button" href="tank/new">+ ADD NEW</a>
+	<a class="large-button" href="tankeditnew.php">+ ADD NEW</a>
 
 </div>
 

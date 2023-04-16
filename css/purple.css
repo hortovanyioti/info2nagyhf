@@ -29,12 +29,17 @@ h1 {
     background-color: #150933;
 }
 
-.add-button {
+.hide-button-bg>* td:nth-last-of-type(1), 
+.hide-button-bg>* td:nth-last-of-type(2) {
+    background-color: #5431ad; /*same as body*/
+}
+
+.large-button , .small-button{
     color: #eee;
     background-color: #1f1122;
 }
 
-.add-button:hover {
+.large-button:hover , .small-button:hover{
     color: #1f1122;
     background-color: #eee;
 }

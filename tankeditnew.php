@@ -1,57 +1,54 @@
-﻿<%- include ('header') -%>
+﻿<?php
+include('header.php');
 
-<h1 align="center">
+$query = 'SELECT class.name AS class FROM class;';
+$query = mysqli_query($db, $query) or die(mysqli_error($db));
+?>
 
-<% if (typeof tank === 'undefined') { %>
-                    Adding
-                <% }else{ %>
-                    Modifying
-                <% } %> tank</h1>
+<?php echo '<h1 align="center">'.(true ? 'Adding': 'Editing').' tank</h1>';  ?>
+
 				
-<form method="POST">
-<table style="width: 50%" align="center" class="tabla_def">
+<form method="POST" action="index.php">
+<table id="main-table">
 	<tr>
-		<td style="width: 45%" align="right" class="tabla_fejlec">Name:</td>
+		<th style="width: 50%">
+			Name:
+		</th>
 		<td>
-			<input type="text" id="tipus" name="tipus"
-                   value="<%= (typeof tank === 'undefined') ? '' : tank.tipus %>">
+			<input required type="text" id="name" name="name" value=<?php isset($_POST['name']) ? $_POST['name'] : '' ?> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 45%" align="right" class="tabla_fejlec">
-			Nationality:
-		</td>
+		<th>
+			Class:
+		</th>
 		<td>
-			<input type="text" id="nation" name="nation"
-                   value="<%= (typeof tank === 'undefined') ? '' : tank.nation %>">
+			<select id="class" name="class">
+				<?php while ($row = mysqli_fetch_array($query)) : ?>
+
+				<option><?= $row['class'] ?></option>
+
+				<?php endwhile;?>
+				 value=<?php isset($_POST['class']) ? $_POST['class'] : '' ?>>
+			<select>
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 45%" align="right" class="tabla_fejlec">
-			Era:
-		</td>
+		<th>
+			Manufacture date:
+		</th>
 		<td>
-			<input type="text" id="era" name="era"
-                   value="<%= (typeof tank === 'undefined') ? '' : tank.era %>">
-		</td>
-	</tr>
-	<tr>
-		<td style="width: 45%" align="right" class="tabla_fejlec">
-			Crew number:
-		</td>
-		<td>
-			<input type="text" id="crewnum" name="crewnum"
-                   value="<%= (typeof tank === 'undefined') ? '' : tank.crewnum %>">
+			<input type="text" id="manufacture" name="manufacture" value=<?php isset($_POST['manufacture']) ? $_POST['manufacture'] : '' ?>>
 		</td>
 	</tr>
 </table>
 
+<div style="text-align: center; margin: 40px">
+	<input class="large-button" type="submit" value="ADD"></input>
+	<a class="large-button" href="index.php">CANCEL</a>
+</div>
 
-	<a href="/tank/new">
-		<input name="Button1" type="submit" value="Add" class="nagygomb" />
-	</a>
-	<a href="/"><input name="Button2" type="button" value="Cancel" class="nagygomb" /></a>
 </form>
-				&nbsp;
 
-<%- include ('footer') -%>
+
+<?php include('footer.php'); ?>

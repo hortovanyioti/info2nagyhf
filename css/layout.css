@@ -31,10 +31,18 @@ h1 {
 	height: 40px;
 }
 
-.add-button {
-	margin-top: 50px;
+.small-button {
+	padding: 10px;
+	font-size: 1em;
+	font-weight: bold;
+	border-radius: 100px;
+	text-decoration: none;
+}
+
+.large-button {
+	margin: 50px;
 	padding: 20px;
-	font-size: 3em;
+	font-size: 2rem;
 	font-weight: bold;
 	border-radius: 100px;
 	text-decoration: none;
