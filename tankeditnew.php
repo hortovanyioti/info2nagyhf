@@ -1,6 +1,13 @@
 ﻿<?php
 include('header.php');
 
+/*if($_POST('name')!==null)
+{
+	$query=sprintf("INSERT INTO tank (name,class,manufacture) VALUES (%s,%s,%d)",$_POST('name'),$_POST('class'),$_POST('manufacture'));
+	$_SESSION['new_add']=true;
+	header("Location: index.php");
+}*/
+
 $query = 'SELECT class.name AS class FROM class;';
 $query = mysqli_query($db, $query) or die(mysqli_error($db));
 ?>
