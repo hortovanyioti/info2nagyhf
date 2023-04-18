@@ -3,10 +3,10 @@ include('lib.php');
 $db = openDB();
 session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false) {
+/*if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false) {
 	header("location: login.php");
 	exit;
- }
+ }*/
 
 //$query = 'SELECT uitheme FROM user WHERE id='.$_SESSION["username"].';';
 //mysqli_query($db, $query) or die(mysqli_error($db));
