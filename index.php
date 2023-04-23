@@ -1,10 +1,10 @@
 ﻿<?php
-include('header.php');
+require('header.php');
 
 $query = 'CREATE OR REPLACE VIEW crewcount AS SELECT tankid, COUNT(DISTINCT(soldierid)) AS crew FROM tankcrew GROUP BY tankid;';	//megszámolja a tankhoz rendelt katonák számát
 mysqli_query($db, $query) or die(mysqli_error($db));
 
-$query = 'SELECT tank.name, tank.manufacture, class.name AS class, user.name AS owner, COALESCE(crewcount.crew,0) AS crew FROM tank JOIN class ON tank.classid=class.id JOIN user ON tank.ownerid=user.id LEFT OUTER JOIN crewcount ON tank.id=crewcount.tankid;';
+$query = 'SELECT tank.id, tank.name, tank.manufacture, class.name AS class, user.name AS owner, COALESCE(crewcount.crew,0) AS crew FROM tank JOIN class ON tank.classid=class.id JOIN user ON tank.ownerid=user.id LEFT OUTER JOIN crewcount ON tank.id=crewcount.tankid;';
 $query = mysqli_query($db, $query) or die(mysqli_error($db));
 ?>
 
@@ -21,13 +21,20 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 
 	<?php while ($row = mysqli_fetch_array($query)) : ?>
 		<tr>
-			<td><?= $row['name'] ?></td>
-			<td><?= $row['owner'] ?></td>
-			<td><?= $row['class'] ?></td>
-			<td><?= $row['crew'] ?></td>
-			<td><?= $row['manufacture'] ?></td>
-			<td style="border: none"><a class="small-button" href="tankeditnew.php">EDIT</a></td>
-			<td style="border: none"><a class="small-button" href="">DELETE</a></td>
+			<form method="POST">
+				<td><?= $row['name'] ?></td>
+				<td><?= $row['owner'] ?></td>
+				<td><?= $row['class'] ?></td>
+				<td><?= $row['crew'] ?></td>
+				<td><?= $row['manufacture'] ?></td>
+				<td style="border: none"><input class="small-button" type="submit" formaction="tankeditnew.php" name="edit" value="EDIT"></td>
+				<td style="border: none"><input class="small-button" type="submit" formaction="deletetank.php" name="delete" value="DELETE"></td>
+
+				<input type="hidden" name="id" value="<?= $row['id'] ?>">
+				<input type="hidden" name="name" value="<?= $row['name'] ?>">
+				<input type="hidden" name="class" value="<?= $row['class'] ?>">
+				<input type="hidden" name="manufacture" value="<?= $row['manufacture'] ?>">
+			</form>
 		</tr>
 	<?php endwhile;?>
 
@@ -38,6 +45,4 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><?php echo hash('sha256', 'footer.php'); ?>
-
-<?php include('footer.php') ?>
+<?php require('footer.php') ?>

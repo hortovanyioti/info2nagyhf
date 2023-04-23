@@ -13,8 +13,8 @@ CREATE TABLE user(
 	uitheme NVARCHAR(40)
 );
 
-INSERT INTO user (name,pw) VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
-INSERT INTO user (name,pw) VALUES ('Germany', '80db4ccdca106d37b920206331fcfe3e9e50a9e763d89b54ce3ad5ac8cf30f03');
+INSERT INTO user (name,pw,uitheme) VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918','purple');
+INSERT INTO user (name,pw) VALUES ('Germany', '80db4ccdca106d37b920206331fcfe3e9e50a9e763d89b54ce3ad5ac8cf30f03','dark');
 
 CREATE TABLE class(
 	id INT PRIMARY KEY AUTO_INCREMENT,

@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+require('header.php');
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
    header("location: index.php");
@@ -16,15 +16,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
       $username = mysqli_real_escape_string($db, $_POST['username']);
       $pw = mysqli_real_escape_string($db, hash('sha256', $_POST['pw']));
 
-      $query = sprintf("SELECT name, pw FROM user WHERE user.name='%s' AND user.pw='%s'", $username, $pw);
+      $query = sprintf("SELECT name, pw, uitheme FROM user WHERE user.name='%s' AND user.pw='%s'", $username, $pw);
+      $query = mysqli_query($db, $query);
 
-      echo 'testing...post.user:' . $username . '<br><br>';
-      echo 'testing...post.pW:' . $pw . '<br><br>';
-
-      if (mysqli_num_rows(mysqli_query($db, $query)) == 1) {
-         $_SESSION['valid'] = true;
+      if (mysqli_num_rows($query) == 1) {
          $_SESSION['timeout'] = time();
          $_SESSION['username'] = $username;
+         $_SESSION['uitheme'] = mysqli_fetch_array($query)['uitheme'];
          $_SESSION['loggedin'] = true;
          header("location:index.php");
       } else {
@@ -36,9 +34,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
    <form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
       <input type="text" name="username" placeholder="username" required autofocus><br>
       <input type="password" name="pw" placeholder="password" required><br>
-      <button class="add-button" type="submit" name="login">Login</button>
+      <button class="large-button" type="submit" name="login">Login</button>
    </form>
 
 </div>
 
-<?php include('footer.php'); ?>
+<?php require('footer.php'); ?>
