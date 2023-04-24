@@ -3,7 +3,8 @@ require('lib.php');
 $db = openDB();
 session_start();
 unset($_SESSION['uitheme']);
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false && str_contains($_SERVER['REQUEST_URI'],'login.php') === false ){
+
+if ((!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false) && str_contains($_SERVER['REQUEST_URI'],'login.php') == false ){
 	header("location: login.php");
 }
 
@@ -40,8 +41,7 @@ if(isset($_POST['uitheme'])){
 			<select id="uitheme" name="uitheme" onchange="this.form.submit()">
 				<?php ListThemes();?>
 			<select>
-				
-			<a href="" class="menubar-item">DARK</a>
+			
 			<a href="login.php" class="menubar-item">LOGIN</a>
 		</div>
 	</form>

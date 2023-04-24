@@ -28,7 +28,7 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 				<td><?= $row['crew'] ?></td>
 				<td><?= $row['manufacture'] ?></td>
 				<td style="border: none"><input class="small-button" type="submit" formaction="tankeditnew.php" name="edit" value="EDIT"></td>
-				<td style="border: none"><input class="small-button" type="submit" formaction="deletetank.php" name="delete" value="DELETE"></td>
+				<td style="border: none"><input class="small-button" type="submit" formaction="tankdelete.php" name="delete" value="DELETE"></td>
 
 				<input type="hidden" name="id" value="<?= $row['id'] ?>">
 				<input type="hidden" name="name" value="<?= $row['name'] ?>">
