@@ -24,7 +24,7 @@ if(isset($_POST['submit_edit'],$_POST['name']))
 	$_POST['name'],$_POST['class'],$_POST['manufacture'],$_POST['id']);
 
 	mysqli_query($db, $query) or die(mysqli_error($db));
-	$_SESSION['new_add']=true;
+	$_SESSION['new_edit']=true;
 	header("Location: index.php");
 }
 

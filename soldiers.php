@@ -9,8 +9,8 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 
 <table id="main-table" class="hide-button-bg">
 	<tr>
-		<th style="width: 25%">Name</th>
-		<th style="width: 25%">Birth year</th>
+		<th style="width: 40%">Name</th>
+		<th style="width: 40%">Birth year</th>
 	</tr>
 
 	<?php while ($row = mysqli_fetch_array($query)) : ?>

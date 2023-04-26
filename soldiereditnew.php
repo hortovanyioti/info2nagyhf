@@ -5,34 +5,34 @@ if(isset($_POST['submit_add'],$_POST['name']))
 {
 	$_POST['name']=mysqli_real_escape_string($db,$_POST['name']);
 
-	$query=sprintf("INSERT INTO tank (ownerid,name,classid,manufacture) 
-	VALUES ((SELECT id FROM user WHERE name='%s'),'%s',(SELECT id FROM class WHERE name='%s'),'%s')",
-	$_SESSION['username'],$_POST['name'],$_POST['class'],$_POST['manufacture']);
+	$query=sprintf("INSERT INTO soldier (name,byear) 
+	VALUES ('%s','%s')",
+	$_POST['name'],$_POST['byear']);
 
 	mysqli_query($db, $query) or die(mysqli_error($db));
 	$_SESSION['new_add']=true;
-	header("Location: index.php");
+	header("Location: soldiers.php");
 }
 
 if(isset($_POST['submit_edit'],$_POST['name']))
 {
 	$_POST['name']=mysqli_real_escape_string($db,$_POST['name']);
 
-	$query=sprintf("UPDATE tank
-	SET name='%s',classid=(SELECT id FROM class WHERE name='%s'),manufacture='%d'
+	$query=sprintf("UPDATE soldier
+	SET name='%s',	byear='%d'
 	WHERE id='%d'",
-	$_POST['name'],$_POST['class'],$_POST['manufacture'],$_POST['id']);
+	$_POST['name'],$_POST['byear'],$_POST['id']);
 
 	mysqli_query($db, $query) or die(mysqli_error($db));
-	$_SESSION['new_add']=true;
-	header("Location: index.php");
+	$_SESSION['new_edit']=true;
+	header("Location: soldiers.php");
 }
 
 $query = 'SELECT name AS class FROM class;';
 $query = mysqli_query($db, $query) or die(mysqli_error($db));
 ?>
 
-<?php echo '<h1 align="center">'.(isset($_POST['edit']) ? 'Editing': 'Adding').' tank</h1>';  ?>
+<?php echo '<h1 align="center">'.(isset($_POST['edit']) ? 'Editing': 'Adding').' soldier</h1>';  ?>
 
 				
 <form method="POST" action="">
@@ -47,26 +47,18 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 	</tr>
 	<tr>
 		<th>
-			Class:
+			Birth year:
 		</th>
 		<td>
-			<select id="class" name="class">
-				<?php while ($row = mysqli_fetch_array($query)) : ?>
-
-				<option <?php if(isset($_POST['class']) && $row['class'] == $_POST['class']) echo 'selected="selected"' ?>>
-					<?= $row['class'] ?>
-				</option>
-
-				<?php endwhile;?>
-			<select>
+			<input type="number" min="1900" max="<?= date("Y")?>" step="1" id="byear" name="byear" value=<?= isset($_POST['byear']) ? $_POST['byear'] : '' ?> >
 		</td>
 	</tr>
 	<tr>
 		<th>
-			Manufacture date:
+			ode kéne még vmi Manufacture date:
 		</th>
 		<td>
-			<input type="number" min="1500" max="2500" step="1" id="manufacture" name="manufacture" value=<?= isset($_POST['manufacture']) ? $_POST['manufacture'] : '' ?>>
+			X
 		</td>
 	</tr>
 </table>

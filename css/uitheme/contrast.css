@@ -1,6 +1,6 @@
 body {
     background-color: #202020;
-    color: #eee;
+    color: #ff0;
 }
 
 h1 {
@@ -10,22 +10,22 @@ h1 {
 #main-table>* td,
 #main-table>* th {
     padding: 15px;
-    border: 1px solid #eee;
+    border: 1px solid #ff0;
 }
 
 #main-table>* th {
-    color: #eee;
+    color: #ff0;
     margin: 10px;
     background-color: #000;
 }
 
 #main-table>* tr:nth-child(even) {
-    color: #eee;
+    color: #ff0;
     background-color: #222;
 }
 
 #main-table>* tr:nth-child(odd) {
-    color: #eee;
+    color: #ff0;
     background-color: #000;
 }
 
@@ -35,29 +35,29 @@ h1 {
 }
 
 .large-button , .small-button {
-    color: #eee;
+    color: #ff0;
     background-color: #000;
-    border: 2px solid #eee;
+    border: 2px solid #ff0;
 }
 
 .large-button:hover , .small-button:hover {
     color: #000;
-    background-color: #eee;
+    background-color: #ff0;
 }
 
 div.menubar {
     background-color: #000;
-    color: #eee;
-    border-top: 2px solid #eee;
-    border-bottom: 2px solid #eee;
+    color: #ff0;
+    border-top: 2px solid #ff0;
+    border-bottom: 2px solid #ff0;
 }
 
 .menubar-item {
-    border: 2px solid #eee;
+    border: 2px solid #ff0;
 }
 
 .menubar-item:hover {
     font-weight: bold;
-    background-color: #eee;
+    background-color: #ff0;
     color: #000;
 }

@@ -2,20 +2,23 @@
 require('lib.php');
 $db = openDB();
 session_start();
-unset($_SESSION['uitheme']);
 
 if ((!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false) && str_contains($_SERVER['REQUEST_URI'],'login.php') == false ){
 	header("location: login.php");
 }
 
+if(isset($_POST['uitheme'])){
+	$_SESSION['uitheme']=$_POST['uitheme'];
+
+	$query = sprintf("UPDATE user
+            SET uitheme='%s'
+            WHERE id='%d'",
+            $_SESSION['uitheme'],$_SESSION['id']);
+}
+
 if(!isset($_SESSION['uitheme'])){
 	$_SESSION['uitheme'] = 'purple';
 }
-
-if(isset($_POST['uitheme'])){
-	$_SESSION['uitheme']=$_POST['uitheme'];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +45,6 @@ if(isset($_POST['uitheme'])){
 				<?php ListThemes();?>
 			<select>
 			
-			<a href="login.php" class="menubar-item">LOGIN</a>
+			<a href="login.php" class="menubar-item"><?= isset($_SESSION['username']) ? $_SESSION['username'] : 'LOGIN' ?></a>
 		</div>
 	</form>
