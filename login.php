@@ -34,7 +34,7 @@ if (isset($_POST['register'])){
 
       if (mysqli_num_rows($query) == 1) {
          $_SESSION['timeout'] = time();
-         $_SESSION['id'] = $id;
+         $_SESSION['id'] = mysqli_fetch_array($query)['id'];
          $_SESSION['username'] = $username;
          $_SESSION['uitheme'] = mysqli_fetch_array($query)['uitheme'];
          $_SESSION['loggedin'] = true;
