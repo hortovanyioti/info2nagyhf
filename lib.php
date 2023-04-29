@@ -26,4 +26,12 @@ function ListThemes(){
 		echo '</option>';
     }
 }
+
+function Contains($arr,$str){
+    foreach ($arr as $item)
+		if(str_contains($item, $str))
+            return true;
+            
+    return false;
+}
 ?>

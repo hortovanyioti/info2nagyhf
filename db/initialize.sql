@@ -69,7 +69,11 @@ CREATE TABLE tankcrew(
 	soldierid INT NOT NULL,
 	tankid INT NOT NULL,
     qualiid INT NOT NULL,
-	startdate DATETIME DEFAULT CURRENT_TIMESTAMP
+	startdate DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (soldierid) REFERENCES soldier(id),
+	FOREIGN KEY (tankid) REFERENCES tank(id),
+	FOREIGN KEY (qualiid) REFERENCES quali(id)
 );
 
 INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (1,1,1);

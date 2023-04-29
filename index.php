@@ -10,6 +10,13 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 
 <h1 align="center">Tank database</h1>
 
+<form method="POST" action="">
+	<div class="searchbar">
+		<input type="text" name="searchTXT" placeholder="Search" <?= isset($_POST['searchTXT']) ? "value=".$_POST['searchTXT'] : '' ?>>
+		<input class="small-button" type="submit" name="search" value="SEARCH">
+	</div>
+</form>
+
 <table id="main-table" class="hide-button-bg">
 	<tr>
 		<th style="width: 25%">Name</th>
@@ -19,23 +26,28 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 		<th style="width: 15%">Manufactured</th>
 	</tr>
 
-	<?php while ($row = mysqli_fetch_array($query)) : ?>
-		<tr>
-			<form method="POST">
-				<td><?= $row['name'] ?></td>
-				<td><?= $row['owner'] ?></td>
-				<td><?= $row['class'] ?></td>
-				<td><?= $row['crew'] ?></td>
-				<td><?= $row['manufacture'] ?></td>
-				<td style="border: none"><input class="small-button" type="submit" formaction="tankeditnew.php" name="edit" value="EDIT"></td>
-				<td style="border: none"><input class="small-button" type="submit" formaction="tankdelete.php" name="delete" value="DELETE"></td>
+	<?php while ($row = mysqli_fetch_array($query)) : 
+			if(isset($_POST['search'],$_POST['searchTXT']) && !Contains($row,$_POST['searchTXT'])) continue;?>
+			<tr>
+				<form method="POST">
+					<td><?= $row['name'] ?></td>
+					<td><?= $row['owner'] ?></td>
+					<td><?= $row['class'] ?></td>
+					<td><?= $row['crew'] ?></td>
+					<td><?= $row['manufacture'] ?></td>
+					<td style="border: none">
+						<input class="small-button" type="submit" formaction="tankeditnew.php?id=<?= $row['id'] ?>" name="edit" value="EDIT" <?=$_SESSION['username'] == 'admin' || $row['owner'] == $_SESSION['username'] ? '' : 'style="display:none"'?>>
+					</td>
+					<td style="border: none">
+						<input class="small-button" type="submit" formaction="tankdelete.php?id=<?= $row['id'] ?>" name="delete" value="DELETE" <?=$_SESSION['username'] == 'admin' || $row['owner'] == $_SESSION['username'] ? '' : 'style="display:none"'?>>
+					</td>
 
-				<input type="hidden" name="id" value="<?= $row['id'] ?>">
-				<input type="hidden" name="name" value="<?= $row['name'] ?>">
-				<input type="hidden" name="class" value="<?= $row['class'] ?>">
-				<input type="hidden" name="manufacture" value="<?= $row['manufacture'] ?>">
-			</form>
-		</tr>
+					<input type="hidden" name="id" value="<?= $row['id'] ?>">
+					<input type="hidden" name="name" value="<?= $row['name'] ?>">
+					<input type="hidden" name="class" value="<?= $row['class'] ?>">
+					<input type="hidden" name="manufacture" value="<?= $row['manufacture'] ?>">
+				</form>
+			</tr>
 	<?php endwhile;?>
 
 </table>

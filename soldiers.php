@@ -7,13 +7,21 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 
 <h1 align="center">Soldiers</h1>
 
+<form method="POST" action="">
+	<div class="searchbar">
+		<input type="text" name="searchTXT" placeholder="Search" <?= isset($_POST['searchTXT']) ? "value=".$_POST['searchTXT'] : '' ?>>
+		<input class="small-button" type="submit" name="search" value="SEARCH">
+	</div>
+</form>
+
 <table id="main-table" class="hide-button-bg">
 	<tr>
 		<th style="width: 40%">Name</th>
 		<th style="width: 40%">Birth year</th>
 	</tr>
 
-	<?php while ($row = mysqli_fetch_array($query)) : ?>
+	<?php while ($row = mysqli_fetch_array($query)) : 
+		if(isset($_POST['search'],$_POST['searchTXT']) && !Contains($row,$_POST['searchTXT'])) continue;?>
 		<tr>
 			<form method="POST">
 				<td><?= $row['name'] ?></td>

@@ -38,17 +38,17 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 <form method="POST" action="">
 <table id="main-table">
 	<tr>
-		<th style="width: 50%">
+		<td style="width: 50%">
 			Name:
-		</th>
+		</td>
 		<td>
 			<input required type="text" id="name" name="name" value=<?= isset($_POST['name']) ? $_POST['name'] : '' ?> >
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<td>
 			Class:
-		</th>
+		</td>
 		<td>
 			<select id="class" name="class">
 				<?php while ($row = mysqli_fetch_array($query)) : ?>
@@ -62,9 +62,9 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<td>
 			Manufacture date:
-		</th>
+		</td>
 		<td>
 			<input type="number" min="1500" max="2500" step="1" id="manufacture" name="manufacture" value=<?= isset($_POST['manufacture']) ? $_POST['manufacture'] : '' ?>>
 		</td>
