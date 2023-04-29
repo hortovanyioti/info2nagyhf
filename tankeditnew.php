@@ -6,8 +6,8 @@ if(isset($_POST['submit_add'],$_POST['name']))
 	$_POST['name']=mysqli_real_escape_string($db,$_POST['name']);
 
 	$query=sprintf("INSERT INTO tank (ownerid,name,classid,manufacture) 
-	VALUES ((SELECT id FROM user WHERE name='%s'),'%s',(SELECT id FROM class WHERE name='%s'),'%s')",
-	$_SESSION['username'],$_POST['name'],$_POST['class'],$_POST['manufacture']);
+	VALUES ('%s','%s',(SELECT id FROM class WHERE name='%s'),'%s')",
+	$_SESSION['id'],$_POST['name'],$_POST['class'],$_POST['manufacture']);
 
 	mysqli_query($db, $query) or die(mysqli_error($db));
 	$_SESSION['new_add']=true;

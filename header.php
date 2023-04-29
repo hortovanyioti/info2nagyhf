@@ -9,13 +9,16 @@ if ((!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false) && str_co
 
 if(isset($_POST['uitheme'])){
 	$_SESSION['uitheme']=$_POST['uitheme'];
-var_dump($_SESSION);
-	$query = sprintf("UPDATE user
-            SET uitheme='%s'
-            WHERE id='%d'",
-            $_SESSION['uitheme'],$_SESSION['id']);
 
-	mysqli_query($db,$query) or die(mysqli_error($db));
+	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+
+		$query = sprintf("UPDATE user
+		SET uitheme='%s'
+		WHERE id='%d'",
+		$_SESSION['uitheme'],$_SESSION['id']);
+
+		mysqli_query($db,$query) or die(mysqli_error($db));
+	}
 }
 
 if(!isset($_SESSION['uitheme'])){

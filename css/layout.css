@@ -13,6 +13,11 @@ h1 {
 	letter-spacing: 3px;
 }
 
+p{
+	font-size: 2rem;
+	text-align: center;
+}
+
 #main-table {
 	width: 70%;
 	margin: 0 auto;
@@ -84,7 +89,7 @@ div.menubar {
 select{
 	color:inherit;
 	background-color: inherit;
-	font-size:2rem;
+	font-size:1.5rem;
 	border: none;
 }
 

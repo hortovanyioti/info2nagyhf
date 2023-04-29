@@ -8,14 +8,21 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 if (isset($_POST['register'])){
    $new_user=mysqli_real_escape_string($db,$_POST['username']);
-   $query="SELECT username FROM user WHERE username='$new_user';";
+   $query="SELECT name FROM user WHERE name='$new_user';";
    $query=mysqli_query($db,$query) or die(mysqli_error($db));
 
    if(mysqli_num_rows($query)!=0){
-      echo 'Username already taken!';
+      echo '<p> Username already taken! </p>';
    }
    else{
-      //insert into db
+      $pw=mysqli_real_escape_string($db,hash('sha256',$_POST['pw']));
+
+      $query=sprintf("INSERT INTO user (name,pw,uitheme) 
+      VALUES ('%s','%s','%s')",
+      $new_user, $pw, $_SESSION['uitheme']);
+
+      mysqli_query($db, $query) or die(mysqli_error($db));
+      $_POST['login'] = true;
    }
 }
 ?>
@@ -23,9 +30,9 @@ if (isset($_POST['register'])){
 <h1 align="center">LOGIN</h1>
 <div style="text-align: center;">
 
-   <?php if (
-      isset($_POST['login'], $_POST['username'], $_POST['pw'])
-   ) {
+   <?php 
+   if (isset($_POST['login'], $_POST['username'], $_POST['pw'])) {
+
       $username = mysqli_real_escape_string($db, $_POST['username']);
       $pw = mysqli_real_escape_string($db, hash('sha256', $_POST['pw']));
 
@@ -33,15 +40,17 @@ if (isset($_POST['register'])){
       $query = mysqli_query($db, $query);
 
       if (mysqli_num_rows($query) == 1) {
+         $row = mysqli_fetch_array($query);
+
          $_SESSION['timeout'] = time();
-         $_SESSION['id'] = mysqli_fetch_array($query)['id'];
+         $_SESSION['id'] = $row['id'];
          $_SESSION['username'] = $username;
-         $_SESSION['uitheme'] = mysqli_fetch_array($query)['uitheme'];
+         $_SESSION['uitheme'] = $row['uitheme'];
          $_SESSION['loggedin'] = true;
          header("location:index.php");
          exit;
       } else {
-         echo 'Wrong username or password';
+         echo '<p> Wrong username or password! </p>';
       }
    }
    ?>
