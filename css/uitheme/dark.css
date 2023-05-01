@@ -63,9 +63,9 @@ div.menubar {
 }
 
 option, input{
-	background-color: #202020;
+	background-color: #000;
 }
 
-.searchbar>input[type=text]{
-	background-color: #000;
+table>* input{
+	background-color: #202020;
 }

@@ -6,10 +6,13 @@ require('header.php');
 <div style="text-align: center;">
 
     <?php 
-        if(isset($_POST['logout'])){
-        session_unset();
-        header("location:login.php");
-        exit;
+    if(isset($_POST['logout'])){
+        
+    $tmp=$_SESSION['uitheme'];
+    session_unset();
+    $_SESSION['uitheme']=$tmp;
+    header("location:login.php");
+    exit;
     }
 
     if (isset($_POST['login'], $_POST['pw'], $_POST['new_pw1'], $_POST['new_pw2'])) {

@@ -27,8 +27,8 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 				<td><?= $row['name'] ?></td>
 				<td><?= $row['byear'] ?></td>
 
-				<td style="border: none"><input class="small-button" type="submit" formaction="tankeditnew.php" name="edit" value="EDIT"></td>
-				<td style="border: none"><input class="small-button" type="submit" formaction="soldierdelete.php" name="delete" value="DELETE"></td>
+				<td style="border: none"><input class="small-button" type="submit" formaction="soldiereditnew.php?id=<?= $row['id'] ?>" name="edit" value="EDIT"></td>
+				<td style="border: none"><input class="small-button" type="submit" formaction="soldierdelete.php?id=<?= $row['id'] ?>" name="delete" value="DELETE"></td>
 
 				<input type="hidden" name="id" value="<?= $row['id'] ?>">
 				<input type="hidden" name="name" value="<?= $row['name'] ?>">

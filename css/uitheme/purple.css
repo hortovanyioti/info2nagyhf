@@ -62,9 +62,9 @@ div.menubar {
 }
 
 option, input{
-	background-color: #5431ad;
+	background-color: #1f1122;
 }
 
-.searchbar>input[type=text]{
-	background-color: #1f1122;
+table>* input{
+	background-color: #5431ad;
 }
