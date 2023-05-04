@@ -12,13 +12,13 @@ A megvalósítandó feladat egy webes alkalmazás PHP nyelven írva, a HTML, CSS
 ### További követelmények:
 
 - [x] Az adatbázis séma legalább 2 adatbázistáblából kell álljon. Mindegyik táblában legalább 3 oszlop szerepeljen, az adatbázis táblák között legalább 1 külső kulcs hivatkozás kell legyen. 
-- Készüljön stíluslap az egyes oldalak egységes megjelenítésének támogatására. IGEN
-- Az alkalmazásnak legyen egységes fejléce, lábléce és menüje, amelyek minden oldalon megjelennek. A menüből legyenek elérhetők a főbb funkciók.  IGEN
-- Az alkalmazásban kell legyen mód minden adatbázisban tárolt adat kiolvasására az adatbázisból, azok megjelenítésére, új adatok bevitelére és a meglévő adatok módosítására. (Tehát nem elegendő, ha csak írni, vagy csak olvasni tudjuk az adatot, szerkeszteni is tudni kell azokat.) IGEN
-- Legyen lehetőség az adatbázistáblák közötti külső kulcs kapcsolatok megjelenítésére, szerkesztésére és törlésére. Ha például egy könyv adatbázisban könyvek és szerzők adatait tároljuk, akkor legyen lehetőség szerkeszteni, hogy melyik könyv melyik szerzőhöz tartozik és ezt a kapcsolatot tudjuk változtatni is. A szerkesztés nem azt jelenti, hogy kitöröljük a kapcsolatot, majd egy újat létrehozunk, hanem a meglévőt szerkesztjük.   IGEN
-- Fontos, hogy a felületen az adatok elérése a felhasználó számára kényelmes módon történjen. IGEN
-- A felhasználó által beírt bemenetet ellenőrizni kell mielőtt adatbázisba írjuk. SQL injection elleni védelmet biztosítani kell. Az adatmódosításkor, felvitelnél figyelni kell a hibás értékek kiszűrésére, például üresen hagyott mezők, értelmetlen értékek (szöveg beírása szám helyett stb.). Ezeket jelezni kell a felhasználónak.     IGEN
-- Legyen lehetőség az adatbázis legalább egyik táblájában keresni (pl. könyveket kilistázni címeik alapján).  IGEN
+- [x] Készüljön stíluslap az egyes oldalak egységes megjelenítésének támogatására.  
+- [x] Az alkalmazásnak legyen egységes fejléce, lábléce és menüje, amelyek minden oldalon megjelennek. A menüből legyenek elérhetők a főbb funkciók.  
+- [x] Az alkalmazásban kell legyen mód minden adatbázisban tárolt adat kiolvasására az adatbázisból, azok megjelenítésére, új adatok bevitelére és a meglévő adatok módosítására. (Tehát nem elegendő, ha csak írni, vagy csak olvasni tudjuk az adatot, szerkeszteni is tudni kell azokat.) 
+- [x] Legyen lehetőség az adatbázistáblák közötti külső kulcs kapcsolatok megjelenítésére, szerkesztésére és törlésére. Ha például egy könyv adatbázisban könyvek és szerzők adatait tároljuk, akkor legyen lehetőség szerkeszteni, hogy melyik könyv melyik szerzőhöz tartozik és ezt a kapcsolatot tudjuk változtatni is. A szerkesztés nem azt jelenti, hogy kitöröljük a kapcsolatot, majd egy újat létrehozunk, hanem a meglévőt szerkesztjük.   
+- [x] Fontos, hogy a felületen az adatok elérése a felhasználó számára kényelmes módon történjen.  
+- [x] A felhasználó által beírt bemenetet ellenőrizni kell mielőtt adatbázisba írjuk. SQL injection elleni védelmet biztosítani kell. Az adatmódosításkor, felvitelnél figyelni kell a hibás értékek kiszűrésére, például üresen hagyott mezők, értelmetlen értékek (szöveg beírása szám helyett stb.). Ezeket jelezni kell a felhasználónak.     
+- [x] Legyen lehetőség az adatbázis legalább egyik táblájában keresni (pl. könyveket kilistázni címeik alapján).  
 
 ### További követelmények:
 
@@ -31,16 +31,16 @@ Maximális pontszám: 30 pont a vizsgára, 25 pont iMSc pontként
 Megajánlott 5-ös: 35 pont elérésével
 
 ### Pontot érő részletek (ahol részleges megoldásért részpontszámok is adhatóak):
-- A minimális funkcionális elvárásoknak megfelelő megoldás github pull requestként, videóval, időben leadva: 15 pont
-- Az adatbázisban összetett kulcs használata: 5p  IGEN
-- Az adatbázisban NOT NULL constraint használata (indokolható helyen): 3p IGEN
-- Az adatbázisban auto_increment használata: 2p   IGEN
-- CSS váltás (skin cserélése) az alkalmazásból: 10p   IGEN
-- Kiválasztott CSS (vagy egyéb, megjelenésre vonatkozó beállítás) felhasználónkénti tárolása: 5p  IGEN
-- Legalább két, nem triviális reguláris kifejezés használata: 5p  NEM
-- Felhasználó kezelés jelszóval (nem plain textben tárolva): 10p  IGEN
-- Kettőnél több jogosultsági kör támogatása: 5p   IGEN
-- Esztétikus megjelenés: max. 10p IGEN?
+- [x] A minimális funkcionális elvárásoknak megfelelő megoldás github pull requestként, videóval, időben leadva: 15 pont
+- [x] Az adatbázisban összetett kulcs használata: 5p  
+- [x] Az adatbázisban NOT NULL constraint használata (indokolható helyen): 3p 
+- [x] Az adatbázisban auto_increment használata: 2p   
+- [x] CSS váltás (skin cserélése) az alkalmazásból: 10p   
+- [x] Kiválasztott CSS (vagy egyéb, megjelenésre vonatkozó beállítás) felhasználónkénti tárolása: 5p  
+- [ ] Legalább két, nem triviális reguláris kifejezés használata: 5p  
+- [x] Felhasználó kezelés jelszóval (nem plain textben tárolva): 10p  
+- [x] Kettőnél több jogosultsági kör támogatása: 5p   
+- [x] Esztétikus megjelenés: max. 10p  
 
 ### Hibapontok:
 - Videó vagy pull request nem készült el 24 órával a leadás előtt: -5p
