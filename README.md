@@ -11,11 +11,11 @@ A megvalósítandó feladat egy webes alkalmazás PHP nyelven írva, a HTML, CSS
 
 ### További követelmények:
 
-- Az adatbázis séma legalább 2 adatbázistáblából kell álljon. Mindegyik táblában legalább 3 oszlop szerepeljen, az adatbázis táblák között legalább 1 külső kulcs hivatkozás kell legyen. IGEN
+- [x] Az adatbázis séma legalább 2 adatbázistáblából kell álljon. Mindegyik táblában legalább 3 oszlop szerepeljen, az adatbázis táblák között legalább 1 külső kulcs hivatkozás kell legyen. 
 - Készüljön stíluslap az egyes oldalak egységes megjelenítésének támogatására. IGEN
 - Az alkalmazásnak legyen egységes fejléce, lábléce és menüje, amelyek minden oldalon megjelennek. A menüből legyenek elérhetők a főbb funkciók.  IGEN
 - Az alkalmazásban kell legyen mód minden adatbázisban tárolt adat kiolvasására az adatbázisból, azok megjelenítésére, új adatok bevitelére és a meglévő adatok módosítására. (Tehát nem elegendő, ha csak írni, vagy csak olvasni tudjuk az adatot, szerkeszteni is tudni kell azokat.) IGEN
-- Legyen lehetőség az adatbázistáblák közötti külső kulcs kapcsolatok megjelenítésére, szerkesztésére és törlésére. Ha például egy könyv adatbázisban könyvek és szerzők adatait tároljuk, akkor legyen lehetőség szerkeszteni, hogy melyik könyv melyik szerzőhöz tartozik és ezt a kapcsolatot tudjuk változtatni is. A szerkesztés nem azt jelenti, hogy kitöröljük a kapcsolatot, majd egy újat létrehozunk, hanem a meglévőt szerkesztjük.   IN PROGRESS
+- Legyen lehetőség az adatbázistáblák közötti külső kulcs kapcsolatok megjelenítésére, szerkesztésére és törlésére. Ha például egy könyv adatbázisban könyvek és szerzők adatait tároljuk, akkor legyen lehetőség szerkeszteni, hogy melyik könyv melyik szerzőhöz tartozik és ezt a kapcsolatot tudjuk változtatni is. A szerkesztés nem azt jelenti, hogy kitöröljük a kapcsolatot, majd egy újat létrehozunk, hanem a meglévőt szerkesztjük.   IGEN
 - Fontos, hogy a felületen az adatok elérése a felhasználó számára kényelmes módon történjen. IGEN
 - A felhasználó által beírt bemenetet ellenőrizni kell mielőtt adatbázisba írjuk. SQL injection elleni védelmet biztosítani kell. Az adatmódosításkor, felvitelnél figyelni kell a hibás értékek kiszűrésére, például üresen hagyott mezők, értelmetlen értékek (szöveg beírása szám helyett stb.). Ezeket jelezni kell a felhasználónak.     IGEN
 - Legyen lehetőség az adatbázis legalább egyik táblájában keresni (pl. könyveket kilistázni címeik alapján).  IGEN
