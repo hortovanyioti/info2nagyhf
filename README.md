@@ -1,10 +1,12 @@
-# Hortoványi Ottó INFO2 HF --- 2022/2023 Tavasz
+# Hortoványi Ottó INFO2 HF --- 2022/2023 Tavasz  
 
-### Neptun: LH6LZG
+### Neptun: LH6LZG  
 
-### Bemutató videó: [TO BE ADDED]
+### Bemutató videó: [TO BE ADDED]  
 
-## Specifikáció
+### [BIZTONSÁGI MÁSOLAT](https://github.com/hortovanyioti/info2nagyhf/blob/master)  
+
+## Specifikáció  
 
 A feladatkiírás, a kötelező és opcionális funkciók lentebb megtalálhatóak: [Házi feladat funkcionális elvárásai](#h%C3%A1zi-feladat-funkcion%C3%A1lis-elv%C3%A1r%C3%A1sai)  
 </br>  
