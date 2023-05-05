@@ -1,25 +1,35 @@
 # Hortoványi Ottó INFO2 HF --- 2022/2023 Tavasz
 
-## Neptun: LH6LZG
+### Neptun: LH6LZG
 
-## Bemutató videó: [TO BE ADDED]
+### Bemutató videó: [TO BE ADDED]
 
 ## Specifikáció
 
 A feladatkiírás, a kötelező és opcionális funkciók lentebb megtalálhatóak: [Házi feladat funkcionális elvárásai](#h%C3%A1zi-feladat-funkcion%C3%A1lis-elv%C3%A1r%C3%A1sai)  
 Az adatbázis és a hozzá készült php oldalak tankok, katonák, illetve azok kapcsolatát hivatott tárolni. A felületeten bejelnetkezés után elérhetőek az alábbi funkciók:
-- Felhasználó létrehozása/módosítása, bejelentkezés (CU)  
-- Tankok, katonák és kapcsolatuk létrehozása, olvasása, módosítása, törlése (CRUD)
-- Alapvető keresés a táblákban 
-##r from /css
- 
-Felépítés:  
+
+- Tankok, katonák és kapcsolatuk létrehozása, olvasása, módosítása, törlése (teljes CRUD)
+- Felhasználó létrehozása/módosítása, bejelentkezés (Minden felhasználó csak a saját tankjait tudja módosítani, ahhoz tud katonát hozzárendelni)  
+- Alapvető keresés a táblákban (Megvizsgál minden cellát, hogy része-e a beírt kifejezés)
+- Képes automatikusan beolvasni egyedi stíluslapokat a megfelelő mappából  
+
+#### Egyéb megjegyzések:
+
+- Az előre definiált felhasznákók neve és jelszava egyszerűség kedvéért megegyezik  
+- `admin admin` felhasználóval más fehasználók tulajdonát is módosíthatjuk  
+- A felhasználói felület angol nyelvű  
+#### Felépítés:  
 <pre>
 - PHP: /                weboldalak  
 - CSS: /css             elredzesés  
        /css/uitheme     stílus(színek)  
 - SQL: /db              kiindulási adatbázis  
 </pre>
+
+#### Adatszerkezet:  
+
+[KÉP]
 
 ## Házi feladat funkcionális elvárásai
 A megvalósítandó feladat egy webes alkalmazás PHP nyelven írva, a HTML, CSS technológiákat használva. Az alkalmazásnak relációs adatbázist kell használnia. A házi feladatot mindenki maga választja. Ez bármilyen téma lehet, amely megfelel a fenti követelményeknek. Például: könyvnyilvántartás, zenetár, munkaidőnyilvántartó, tanulmányi rendszer stb.
