@@ -7,7 +7,8 @@
 ## Specifikáció
 
 A feladatkiírás, a kötelező és opcionális funkciók lentebb megtalálhatóak: [Házi feladat funkcionális elvárásai](#h%C3%A1zi-feladat-funkcion%C3%A1lis-elv%C3%A1r%C3%A1sai)  
-Az adatbázis és a hozzá készült php oldalak tankok, katonák, illetve azok kapcsolatát hivatott tárolni. A felületeten bejelnetkezés után elérhetőek az alábbi funkciók:
+</br>  
+Az adatbázis és a hozzá készült php oldalak tankok, katonák, illetve ezek kapcsolatát hivatott tárolni. A felületeten bejelnetkezés után elérhetőek az alábbi funkciók:
 
 - Tankok, katonák és kapcsolatuk létrehozása, olvasása, módosítása, törlése (teljes CRUD)
 - Felhasználó létrehozása/módosítása, bejelentkezés (Minden felhasználó csak a saját tankjait tudja módosítani, ahhoz tud katonát hozzárendelni)  
