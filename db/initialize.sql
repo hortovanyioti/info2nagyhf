@@ -40,8 +40,8 @@ CREATE TABLE tank(
 );
 
 INSERT INTO tank (ownerid,classid,name) VALUES (1,1,'t34');
-INSERT INTO tank (ownerid,classid,name) VALUES (1,3,'tiger');
-INSERT INTO tank (ownerid,classid,name) VALUES (1,5,'jgpz');
+INSERT INTO tank (ownerid,classid,name) VALUES (2,3,'tiger');
+INSERT INTO tank (ownerid,classid,name) VALUES (2,5,'jgpz');
 
 CREATE TABLE quali( /*quali = qualification, munkakör*/
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,6 +64,8 @@ CREATE TABLE soldier(
 INSERT INTO soldier (name,byear) VALUES ('János',1995);
 INSERT INTO soldier (name,byear) VALUES ('Vladimir',1985);
 INSERT INTO soldier (name,byear) VALUES ('Pityu',2000);
+INSERT INTO soldier (name,byear) VALUES ('Nagy Gábor',1973);
+INSERT INTO soldier (name,byear) VALUES ('Sebastian',1998);
 
 CREATE TABLE tankcrew(
 	soldierid INT NOT NULL,
@@ -77,7 +79,7 @@ CREATE TABLE tankcrew(
 );
 
 INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (1,1,1);
-INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (1,1,1);
-INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (2,1,1);
-INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (3,1,1);
-INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (1,2,1);
+INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (2,1,2);
+INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (3,1,3);
+INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (4,2,1);
+INSERT INTO tankcrew (soldierid,tankid,qualiid) VALUES (5,2,2);

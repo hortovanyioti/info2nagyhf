@@ -24,12 +24,39 @@ if(isset($_POST['submit_edit'],$_POST['name']))
 	$_POST['name'],$_POST['byear'],$_POST['id']);
 
 	mysqli_query($db, $query) or die(mysqli_error($db));
+	
+	//---
+	
+	if(!isset($_POST['tankid'], $_POST['qualiid']) || $_POST['tankid'] == "" || $_POST['qualiid'] == "")
+	{
+		$query=sprintf("DELETE FROM tankcrew WHERE soldierid='%d'", $_POST['id']);
+	}
+	else
+	{
+		$query=sprintf("UPDATE tankcrew
+		SET tankid='%d', qualiid='%d'
+		WHERE soldierid='%d'",
+		$_POST['tankid'],$_POST['qualiid'],$_POST['id']);
+	}
+	
+	mysqli_query($db, $query) or die(mysqli_error($db));
+
 	$_SESSION['new_edit']=true;
 	header("Location: soldiers.php");
 }
 
 $query = 'SELECT name AS class FROM class;';
 $query = mysqli_query($db, $query) or die(mysqli_error($db));
+
+if($_SESSION['id']==1)
+	$tank_query = "SELECT name AS tank FROM tank;";
+else
+	$tank_query = "SELECT name AS tank FROM tank WHERE ownerid={$_SESSION['id']};";
+
+$tank_query = mysqli_query($db, $tank_query) or die(mysqli_error($db));
+
+$quali_query = 'SELECT name AS quali FROM quali';
+$quali_query = mysqli_query($db, $quali_query) or die(mysqli_error($db));
 ?>
 
 <?php echo '<h1 align="center">'.(isset($_POST['edit']) ? 'Editing': 'Adding').' soldier</h1>';  ?>
@@ -38,27 +65,53 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 <form method="POST" action="">
 <table id="main-table">
 	<tr>
-		<th style="width: 50%">
+		<td style="width: 50%">
 			Name:
-		</th>
+		</td>
 		<td>
 			<input required type="text" id="name" name="name" value=<?= isset($_POST['name']) ? $_POST['name'] : '' ?> >
 		</td>
 	</tr>
 	<tr>
-		<th>
+		<td>
 			Birth year:
-		</th>
+		</td>
 		<td>
 			<input type="number" min="1900" max="<?= date("Y")?>" step="1" id="byear" name="byear" value=<?= isset($_POST['byear']) ? $_POST['byear'] : '' ?> >
 		</td>
 	</tr>
 	<tr>
-		<th>
-			ode kéne még vmi Manufacture date:
-		</th>
 		<td>
-			X
+			Vehicle:
+		</td>
+		<td>
+			<select id="tank" name="tank">
+				<option></option>
+				<?php while ($row = mysqli_fetch_array($tank_query)) : ?>
+
+				<option <?php if(isset($_POST['tank']) && $row['tank'] == $_POST['tank']) echo 'selected="selected"' ?>>
+					<?= $row['tank'] ?>
+				</option>
+
+				<?php endwhile;?>
+			<select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Qualification:
+		</td>
+		<td>
+			<select id="quali" name="quali">
+				<option></option>
+				<?php while ($row = mysqli_fetch_array($quali_query)) : ?>
+
+				<option <?php if(isset($_POST['quali']) && $row['quali'] == $_POST['quali']) echo 'selected="selected"' ?>>
+					<?= $row['quali'] ?>
+				</option>
+
+				<?php endwhile;?>
+			<select>
 		</td>
 	</tr>
 </table>
