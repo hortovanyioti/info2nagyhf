@@ -42,7 +42,7 @@ $query = mysqli_query($db, $query) or die(mysqli_error($db));
 			Name:
 		</td>
 		<td>
-			<input required type="text" id="name" name="name" value=<?= isset($_POST['name']) ? $_POST['name'] : '' ?> >
+			<input required type="text" id="name" name="name" value="<?= isset($_POST['name']) ? $_POST['name'] : '' ?>" >
 		</td>
 	</tr>
 	<tr>
