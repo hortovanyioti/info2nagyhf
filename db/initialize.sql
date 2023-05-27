@@ -39,9 +39,9 @@ CREATE TABLE tank(
 	FOREIGN KEY (classid) REFERENCES class(id)
 );
 
-INSERT INTO tank (ownerid,classid,name) VALUES (1,1,'t34');
-INSERT INTO tank (ownerid,classid,name) VALUES (2,3,'tiger');
-INSERT INTO tank (ownerid,classid,name) VALUES (2,5,'jgpz');
+INSERT INTO tank (ownerid,classid,name,manufacture) VALUES (1,1,'T34',1938);
+INSERT INTO tank (ownerid,classid,name,manufacture) VALUES (2,3,'Panzer IV',1943);
+INSERT INTO tank (ownerid,classid,name,manufacture) VALUES (2,5,'Jagdpanzer',1940);
 
 CREATE TABLE quali( /*quali = qualification, munkakör*/
 	id INT PRIMARY KEY AUTO_INCREMENT,

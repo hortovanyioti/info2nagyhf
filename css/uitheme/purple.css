@@ -37,6 +37,7 @@ h1 {
 .large-button , .small-button{
     color: #eee;
     background-color: #1f1122;
+    border: 2px solid #1f1122;
 }
 
 .large-button:hover , .small-button:hover{
