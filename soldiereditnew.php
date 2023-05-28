@@ -6,10 +6,17 @@ if(isset($_POST['submit_add'],$_POST['name']))
 	$_POST['name']=mysqli_real_escape_string($db,$_POST['name']);
 
 	$query=sprintf("INSERT INTO soldier (name,byear) 
-	VALUES ('%s','%s')",
+	VALUES ('%s','%s');",
 	$_POST['name'],$_POST['byear']);
 
 	mysqli_query($db, $query) or die(mysqli_error($db));
+
+	$query=sprintf("INSERT INTO tankcrew (soldierid,tankid,qualiid)
+	VALUES ((SELECT id FROM soldier GROUP BY id DESC LIMIT 1),(SELECT id FROM tank WHERE name='%s'),(SELECT id FROM quali WHERE name='%s'));",
+	$_POST['tank'],$_POST['quali']);
+
+	mysqli_query($db, $query) or die(mysqli_error($db));
+
 	$_SESSION['new_add']=true;
 	header("Location: soldiers.php");
 }
