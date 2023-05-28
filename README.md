@@ -2,7 +2,7 @@
 
 ### Neptun: LH6LZG  
 
-### Bemutató videó: [TO BE ADDED]  
+### Bemutató videó: https://drive.google.com/file/d/1Seh5MNcPsJRIgoTsQ7t0EvHfzQIEfGcZ/view?usp=drive_link
 
 ### [BIZTONSÁGI MÁSOLAT](https://github.com/hortovanyioti/info2nagyhf/blob/master)  
 
